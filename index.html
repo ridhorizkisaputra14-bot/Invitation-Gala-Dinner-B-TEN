@@ -135,7 +135,6 @@
                 <!-- Baju 1: Tampak Depan / Model 1 -->
                 <div class="bg-[#0D121D] border border-gray-800 rounded-lg p-6 flex flex-col items-center text-center space-y-4 hover:border-amber-500/50 transition duration-300">
                     <div class="w-full h-72 bg-gray-900 rounded overflow-hidden flex items-center justify-center border border-gray-800">
-                        <!-- GANTI "baju-depan.png" DENGAN NAMA FILE GAMBAR BAJU KAMU -->
                         <img src="baju-depan.png" alt="Kaos BTEN 22nd Anniversary - Depan" class="h-full w-full object-cover hover:scale-105 transition duration-500" />
                     </div>
                     <div>
@@ -148,7 +147,6 @@
                 <!-- Baju 2: Tampak Belakang / Model 2 -->
                 <div class="bg-[#0D121D] border border-gray-800 rounded-lg p-6 flex flex-col items-center text-center space-y-4 hover:border-amber-500/50 transition duration-300">
                     <div class="w-full h-72 bg-gray-900 rounded overflow-hidden flex items-center justify-center border border-gray-800">
-                        <!-- GANTI "baju-belakang.png" DENGAN NAMA FILE GAMBAR BAJU KAMU -->
                         <img src="baju-belakang.png" alt="Kaos BTEN 22nd Anniversary - Belakang" class="h-full w-full object-cover hover:scale-105 transition duration-500" />
                     </div>
                     <div>
@@ -160,9 +158,25 @@
 
             </div>
 
+            <!-- SECTION REKENING PEMBAYARAN & KLIK SALIN -->
+            <div class="pt-6 max-w-md mx-auto">
+                <div class="bg-[#0D121D] border border-amber-500/30 rounded-lg p-6 text-center space-y-3 shadow-lg">
+                    <p class="text-xs tracking-wider text-amber-400 uppercase font-semibold">Informasi Pembayaran</p>
+                    <p class="text-sm text-gray-300">Bank BCA</p>
+                    <div class="flex items-center justify-center gap-2">
+                        <span id="norek" class="font-mono text-2xl font-bold text-white tracking-wider">7335013883</span>
+                    </div>
+                    <button onclick="copyNorek()" class="bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-semibold py-2 px-5 rounded transition duration-200 flex items-center justify-center gap-2 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                        <span id="btn-text">Klik untuk Salin No. Rekening</span>
+                    </button>
+                </div>
+            </div>
+
             <!-- Tombol Pesan Baju via Whatsapp -->
-            <div class="pt-4">
-                <!-- Ganti nomor HP WhatsApp di bawah ini (Ganti 628123456789 dengan nomor panitia) -->
+            <div class="pt-2">
                 <a href="https://wa.me/6287774562717?text=Halo%20Panitia,%20saya%20mau%20pesan%20Kaos%20Gala%20Dinner%20BTEN" target="_blank" 
                    class="border border-amber-400 text-amber-400 hover:bg-amber-400 hover:text-black font-bold uppercase tracking-widest text-xs py-3 px-8 transition duration-300 inline-block">
                     Pesan Kaos Via WhatsApp
@@ -198,6 +212,22 @@
         </div>
         <p>© 2026 Gala Dinner Bengkel Sepoeloeh. All Rights Reserved.</p>
     </footer>
+
+    <!-- SCRIPT UNTUK SALIN REKENING -->
+    <script>
+        function copyNorek() {
+            const norek = "7335013883";
+            navigator.clipboard.writeText(norek).then(() => {
+                const btnText = document.getElementById("btn-text");
+                btnText.innerText = "Berhasil Disalin! ✓";
+                setTimeout(() => {
+                    btnText.innerText = "Klik untuk Salin No. Rekening";
+                }, 2000);
+            }).catch(err => {
+                console.error("Gagal menyalin: ", err);
+            });
+        }
+    </script>
 
 </body>
 </html>
